@@ -1,14 +1,27 @@
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div
+    <motion.div
       id="About"
       className="w-full bg-slate-100 flex flex-col items-center justify-center px-10 pt-10"
+      initial={{ opacity: 0 }}
+      viewport={{ once: false }}
+      whileInView={{ opacity: 1 }}
+      transition={{ type: "spring", delay: 0.75 }}
+      exit={{ opacity: 0 }}
     >
       <p className="text-4xl font-semibold text-gray-900">About Us</p>
-      <div className="w-[90%] md:w-[70%] lg:w-1/2 flex flex-col items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        viewport={{ once: false }}
+        whileInView={{ opacity: 1 }}
+        transition={{ type: "spring" }}
+        exit={{ opacity: 0 }}
+        className="w-[90%] md:w-[70%] lg:w-1/2 flex flex-col items-center justify-center"
+      >
         <p className="text-xl mt-10 text-gray-800 text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ab at
           officia itaque exercitationem! Ea molestiae culpa porro nobis a
@@ -24,8 +37,8 @@ const About = () => {
         <div className="rounded-full cursor-pointer text-xl font-semibold bg-slate-900 p-4 px-10 text-white mt-10 mb-10">
           Read More
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
