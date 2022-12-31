@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const items = ["About", "Services", "Location"];
 
@@ -9,19 +11,26 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <nav className="bg-transparent shadow-xl fixed top-0 left-0 right-0 w-full z-10 backdrop-blur-md">
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="bg-transparent shadow-xl fixed top-0 left-0 right-0 w-full z-10 backdrop-blur-md"
+      >
         <div className="w-full">
           <div className="flex items-center h-20 w-full">
             <div className="flex items-center  md:mx-20 mx-5  justify-between w-full">
               <div className="flex justify-center items-center flex-shrink-0 ">
-                <h1 className=" font-bold text-xl cursor-pointer">
-                  <Image src={"/logo.png"} height={40} width={170} />
-                </h1>
+                <Link href="/">
+                  <h1 className="font-bold text-xl cursor-pointer">
+                    <Image src={"/logo.png"} height={40} width={170} />
+                  </h1>
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {items.map((item) => (
-                    <Link
+                    <ScrollLink
                       activeClass={item}
                       to={item}
                       smooth={true}
@@ -31,7 +40,7 @@ function Navbar() {
                       key={item}
                     >
                       {item}
-                    </Link>
+                    </ScrollLink>
                   ))}
                 </div>
               </div>
@@ -99,7 +108,7 @@ function Navbar() {
                 className="bg-transparent shadow-xl px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
                 {items.map((item) => (
-                  <Link
+                  <ScrollLink
                     activeClass={item}
                     to={item}
                     key={item}
@@ -109,13 +118,13 @@ function Navbar() {
                     className="cursor-pointer hover:bg-red-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
                     {item}
-                  </Link>
+                  </ScrollLink>
                 ))}
               </div>
             </div>
           )}
         </Transition>
-      </nav>
+      </motion.nav>
     </div>
   );
 }
