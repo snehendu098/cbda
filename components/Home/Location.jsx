@@ -11,7 +11,7 @@ const Location = () => {
         // style="border:0;"
         allowFullScreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer-when-downgrade"
         className="w-full min-h-[70vh]"
       ></iframe>
     </div>

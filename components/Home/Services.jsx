@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import useSWR from "swr";
+import axios from "axios";
 
-const Service = () => (
+const Service = ({ item }) => (
   // l = l.slice(96) + "..."
   <motion.div
     initial={{ opacity: 0 }}
@@ -24,6 +26,8 @@ const Service = () => (
 );
 
 const Services = () => {
+  const { data } = useSWR("/api/notion", fetchData);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,10 +40,15 @@ const Services = () => {
         Some Of Our Services
       </p>
       <div className="w-[90%] grid grid-cols-1 sm:grid-cols-2 gap-4 mx-2 md:mx-7 mt-5 lg:grid-cols-4">
-        <Service />
-        <Service />
-        <Service />
-        <Service />
+        {data &&
+          data.data.map((item, index) => {
+            if (index <= 3) {
+              return <Service key={index} item={item} />;
+            }
+          })}
+        {data?.data?.length <= 0 && (
+          <p className="text-red-600 font-semibold">No Services</p>
+        )}
       </div>
 
       <Link href="/services">
@@ -50,5 +59,10 @@ const Services = () => {
     </motion.div>
   );
 };
+
+async function fetchData(url) {
+  const res = await axios.get(url);
+  return res;
+}
 
 export default Services;
