@@ -17,10 +17,9 @@ const Service = ({ item }) => (
       alt="cbda"
       className="aspect-square bg-cover bg-center"
     />
-    <p className="text-xl font-bold text-slate-800">Service 1</p>
+    <p className="text-xl font-bold text-slate-800">{item?.name}</p>
     <p className="text-md text-center text-slate-600 mt-3 mx-2">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non culpa odio
-      magnam asperiores labor
+      {item?.desc?.slice(96) + "..."}
     </p>
   </motion.div>
 );
