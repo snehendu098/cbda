@@ -8,12 +8,12 @@ const Card = ({ item }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ ease: "linear" }}
-      className="w-[90%] sm:w-[80%] bg-white p-5 rounded-sm shadow-xl md:w-[90%] md:grid md:grid-cols-3 md:gap-4"
+      className="w-[90%] sm:w-[80%] bg-white p-5 mb-5  rounded-sm shadow-xl md:w-[90%] md:grid md:grid-cols-3 md:gap-4"
     >
       <img
         src={link}
         alt={item.name}
-        className={`object-cover md:col-span-1 min-h-[12rem] bg-center md:w-full md:mr-2 overflow-hidden`}
+        className={`object-cover md:col-span-1 max-h-[12rem] bg-center md:w-full md:mr-2 overflow-hidden`}
       />
       <div className="md:col-span-2">
         <p className="text-2xl font-semibold md:mt-0 mt-5 text-gray-900">
