@@ -19,7 +19,7 @@ const Service = ({ item }) => (
     />
     <p className="text-xl font-bold text-slate-800">{item?.name}</p>
     <p className="text-md text-center text-slate-600 mt-3 mx-2">
-      {item?.desc?.slice(96) + "..."}
+      {item?.desc?.length > 96 ? item?.desc?.slice(96) + "..." : item?.desc}
     </p>
   </motion.div>
 );
