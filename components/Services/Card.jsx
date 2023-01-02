@@ -7,7 +7,7 @@ const Card = ({ item }) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ ease: "linear", delay: 0.1 }}
+      transition={{ ease: "linear" }}
       className="w-[90%] sm:w-[80%] bg-white p-5 rounded-sm shadow-xl md:w-[90%] md:grid md:grid-cols-3 md:gap-4"
     >
       <img
