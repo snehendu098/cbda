@@ -15,7 +15,7 @@ const Service = ({ item }) => (
     <img
       src={item.img}
       alt="cbda"
-      className="aspect-square bg-cover bg-center"
+      className="aspect-square object-cover object-center"
     />
     <p className="text-xl font-bold text-slate-800">{item?.name}</p>
     <p className="text-md text-center text-slate-600 mt-3 mx-2">
