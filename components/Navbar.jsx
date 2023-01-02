@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const items = ["About", "Services", "Location"];
+const items = ["about", "services", "doctors"];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +13,7 @@ function Navbar() {
       <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.3 }}
         className="bg-transparent shadow-xl fixed top-0 left-0 right-0 w-full z-10 backdrop-blur-md"
       >
         <div className="w-full">
@@ -30,17 +29,11 @@ function Navbar() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {items.map((item) => (
-                    <ScrollLink
-                      activeClass={item}
-                      to={item}
-                      smooth={true}
-                      offset={50}
-                      duration={500}
-                      className="cursor-pointer hover:bg-red-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                      key={item}
-                    >
-                      {item}
-                    </ScrollLink>
+                    <Link href={item} key={item}>
+                      <p className="cursor-pointer hover:bg-red-600 text-black hover:text-white px-3 py-2 capitalize rounded-md text-sm font-medium">
+                        {item}
+                      </p>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -108,17 +101,11 @@ function Navbar() {
                 className="bg-transparent shadow-xl px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
                 {items.map((item) => (
-                  <ScrollLink
-                    activeClass={item}
-                    to={item}
-                    key={item}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer hover:bg-red-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    {item}
-                  </ScrollLink>
+                  <Link href={item} key={item}>
+                    <p className="cursor-pointer hover:bg-red-600 text-black hover:text-white capitalize block px-3 py-2 rounded-md text-base font-medium">
+                      {item}
+                    </p>
+                  </Link>
                 ))}
               </div>
             </div>

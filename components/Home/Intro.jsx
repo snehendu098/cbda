@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
 
 const Intro = () => {
   return (
@@ -46,6 +47,23 @@ const Intro = () => {
             Explore Services
           </motion.div>
         </Link>
+        <ScrollLink
+          to="Location"
+          activeClass="Location"
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ ease: "linear", delay: 0.75 }}
+            className="p-4 px-8 bg-slate-800 text-white mt-5 rounded-full shadow-xl duration-500 cursor-pointer hover:bg-slate-600"
+          >
+            Check Location
+          </motion.div>
+        </ScrollLink>
       </div>
     </motion.div>
   );

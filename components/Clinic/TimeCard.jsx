@@ -1,18 +1,26 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Endpoint: https://script.google.com/macros/s/AKfycbxLEFItqgQuYK6z5ggez8EMy_h-DJm6jNuNOgZNlo_St_VxRCjml0xR4z7d_CTpnYDWoQ/exec
 
-const TimeCard = () => {
+const TimeCard = ({ item }) => {
+  console.log(item);
   return (
-    <div className="w-[80%] border-[5px] p-2">
-      <p className="text-lg font-semibold rounded-md">9:30 pm - 10:30 pm</p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+      className="w-[80%] border-[5px] p-2 mb-6"
+    >
+      <p className="text-lg font-semibold rounded-md">{item.time}</p>
       <ul className="mt-3">
-        <li className="text-md font-semibold text-gray-600">Dr 1</li>
-        <li className="text-md font-semibold text-gray-600">Dr 2</li>
-        <li className="text-md font-semibold text-gray-600">Dr 3</li>
-        <li className="text-md font-semibold text-gray-600">Dr 4</li>
+        {item.doctors.map((val, index) => (
+          <li key={index} className="text-md font-semibold text-gray-600">
+            {val}
+          </li>
+        ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Service = () => (
+  // l = l.slice(96) + "..."
   <motion.div
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
