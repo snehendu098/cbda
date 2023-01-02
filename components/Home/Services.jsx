@@ -13,7 +13,7 @@ const Service = ({ item }) => (
     className="flex items-center justify-center flex-col"
   >
     <img
-      src="./cbda.png"
+      src={item.img}
       alt="cbda"
       className="aspect-square bg-cover bg-center"
     />
