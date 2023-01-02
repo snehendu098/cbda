@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Service = () => (
   <motion.div
@@ -40,9 +41,11 @@ const Services = () => {
         <Service />
       </div>
 
-      <div className="text-xl px-10 p-2 bg-slate-900 text-white mt-20 cursor-pointer duration-500 hover:bg-slate-800">
-        Explore
-      </div>
+      <Link href="/services">
+        <div className="text-xl px-10 p-2 bg-slate-900 text-white mt-20 cursor-pointer duration-500 hover:bg-slate-800">
+          Explore
+        </div>
+      </Link>
     </motion.div>
   );
 };
