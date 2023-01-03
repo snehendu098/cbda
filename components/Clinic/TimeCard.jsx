@@ -12,7 +12,7 @@ const TimeCard = ({ item }) => {
       transition={{ delay: 0.4 }}
       className="w-[80%] border-[5px] p-2 mb-6"
     >
-      <p className="text-lg font-semibold rounded-md">{item.time}</p>
+      <p className="text-lg font-semibold rounded-md">{item?.days}</p>
       <ul className="mt-3">
         {item.doctors.map((val, index) => (
           <li key={index} className="text-md font-semibold text-gray-600">
